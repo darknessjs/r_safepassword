@@ -8,6 +8,7 @@ Author: Darkness
 Author URI: http://www.darkjs.com/
 License: GPL
 */
+
 function loginactioncode(){	?>
     <input type="hidden" name="safecode" id="safecode">
     <script language="JavaScript">
@@ -48,7 +49,6 @@ function loginactioncode(){	?>
             }
             return out;
         }
-
         $("#loginform").submit(function(e){
             var str=$("#user_pass").val();
             var n="";
@@ -74,10 +74,8 @@ function postsavecode(){
         $pwdnowpoint=0;
         for($i=0;$i<strlen($pwdarr1[1]);$i++){
             $pwdresult=$pwdresult.chr(substr($pwdarr1[0],$pwdnowpoint,substr($pwdarr1[1],$i,1))/$_SESSION['safecode']);
-
             $pwdnowpoint=$pwdnowpoint+substr($pwdarr1[1],$i,1);
         }
-        echo $pwdresult;
         $_POST['pwd']=$pwdresult;
 
     }
